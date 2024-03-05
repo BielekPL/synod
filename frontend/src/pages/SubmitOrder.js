@@ -1,4 +1,5 @@
 import React from "react";
+import { APIConnector } from "../api";
 
 function MyFrom(){
     function action(e){
@@ -7,8 +8,9 @@ function MyFrom(){
         const f= e.target;
         const data = new FormData(f);
         data.append("items", sessionStorage.getItem("basket"))
-        alert("Formularz zosanie wysłany. Info w konsoli");
-        // todo: Wstawić tu wysyłanie danych przez API/Serwer 
+        const api = new APIConnector();
+        api.form_post(data).then(alert);
+
     }
 
     return (
