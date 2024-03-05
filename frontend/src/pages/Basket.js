@@ -4,18 +4,19 @@ import { OutlineDangerBtn, PrimaryBtn, TestButton } from "./components/Buttons";
 import { Link } from "react-router-dom";
 import routes from "../routes";
 import { useOrderContext } from "./hooks/OrderContext";
+import { BASKET as BasketStruct} from "../structures";
 
 const markText = (e) =>{
   e.target.select()
 }
 
 function Tr(d, i, f, updateAmount) {
-  const amount = d[3];
+  const amount = d[BasketStruct.amount];
   const updateAmountMid = (v) => {
     if (v < 1) v = 1;
     updateAmount(i - 1, v);
   };
-  if (!d[0]) return;
+  if (!d[BasketStruct.id]) return;
   const handleChange = (e) => {
     if(e.target.value == null)return;
      updateAmountMid(Number(e.target.value))};
@@ -24,10 +25,10 @@ function Tr(d, i, f, updateAmount) {
     <tr key={i} id={i}>
       <td /*scope="row" */ key="nr">{i}</td>
       <td /*scope="col" */ key="img">
-        <img className="img" src={d[5] || ''} alt="preview" />
+        <img className="img" src={d[BasketStruct.img] || ''} alt="preview" />
       </td>
       <td /*scope="col" */ key="title">
-        <Link to={"/items/" + d.id}>{d[1]}</Link>
+        <Link to={"/items/" + d[BasketStruct.id]}>{d[BasketStruct.title]}</Link>
       </td>
 
       <td /*scope="col" */ className="align-items-center" key="amount">
@@ -60,7 +61,7 @@ function Tr(d, i, f, updateAmount) {
         </button>
       </td>
       <td /*scope="col" */ key="price" className="price">
-        {d[2]}
+        {d[BasketStruct.prize]}
       </td>
       <td className="bin">
         <OutlineDangerBtn onClick={() => f(i)} txt={"Usuń z koszyka"} />
@@ -93,7 +94,7 @@ export default function Basket() {
   useEffect(() => {
     try {
       const d = list.filter((v) => {
-        return v[0] ? v : null;
+        return v[BasketStruct.id] ? v : null;
       });
       // eslint-disable-next-line
       dt = d;
@@ -110,7 +111,7 @@ export default function Basket() {
 
   const updateListMid = (i, v) => {
     let temp = list;
-    temp[i][3] = v;
+    temp[i][BasketStruct.amount] = v;
     updateList([...temp]);
   };
   let sum = 0;
@@ -162,7 +163,7 @@ export default function Basket() {
 
         <tbody>
           {list.map((v, i) => {
-            sum += v[2] * v[3];
+            sum += v[BasketStruct.prize] * v[BasketStruct.amount];
             return Tr(v, i + 1, filterList, updateListMid);
           })}
 
