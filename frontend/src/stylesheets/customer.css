@@ -1,0 +1,39 @@
+/* customer.css */
+
+.navbar{--navbar-btns-amount: 4;}
+
+@media (max-width: 768px) {
+    aside {
+        display: none !important;
+    }
+
+    .main-wrapper{
+        display: block;
+    }
+}
+
+@media (min-width: 767px) {
+    .main-wrapper{
+        display: grid;
+        grid-template-columns: 15fr 85fr;
+    }
+
+}
+
+#basket{position: relative;}
+
+#basket > div[items-amount="1"]::before{
+    /* content: attr(items-amount); */
+    content:"";
+    background-color: yellow;
+    color: black;
+    position: absolute;
+    top: -.5em;
+    right: -.5em;
+    border-radius: 1em;
+    width: 1.5em;
+    height: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,49 @@
+/* update_item.css */
+
+.updateItem > .wrapper{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    width: 100%;
+    margin-top: .5em;
+    padding: 2em;
+}
+
+main img {
+    height: 17em;
+    /* margin: 0 2em; */
+}
+
+.updateItem li {
+    margin-bottom: .5em;
+}
+
+/* ! Konsultacja: czy zostawiamy kropeczki przy linkach navbar czy nie?
+    tak -> zostawić
+    nie -> usunąć .updateItem poniżej */
+.updateItem li::marker{
+    content: "";
+    margin: 0;
+}
+
+input[type=number]{
+    text-align: right;
+    padding-right: 1em !important;
+}
+
+ul > .row {
+    gap: 2em;
+}
+
+.img{
+    display: flex;
+    flex-direction: column;
+    gap: .3em;
+    align-items: center;
+}
+
+img[src=""], img:not([src]){
+    border: 2px solid black;
+    max-width: 11em;
+}
+
+.img > .btn{width: max-content;}
