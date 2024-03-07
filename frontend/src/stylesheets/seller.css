@@ -1,0 +1,4 @@
+/* seller.css */
+
+.seller.main-wrapper{grid-template-columns: 1fr;}
+.seller .navbar{--navbar-btns-amount: 3;}

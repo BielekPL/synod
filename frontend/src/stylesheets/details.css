@@ -1,0 +1,108 @@
+/* details.css */
+.DetailsContainer {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1em;
+}
+
+.DetailsContainer .topic {
+    grid-column: 1/5;
+}
+
+.DetailsContainer img {
+    grid-column: 2/3;
+    max-height: 17em;
+}
+
+.DetailsContainer .details {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr auto auto;
+}
+
+.DetailsContainer .details>ul {
+    width: max-content;
+    height: max-content;
+    justify-self: center;
+}
+
+.DetailsContainer .info {
+    font-weight: bold;
+}
+
+.DetailsContainer .info::before {
+    font-weight: lighter;
+    content: attr(data-tag);
+}
+
+
+.DetailsContainer .price {
+    display: block;
+    font-size: xx-large;
+    text-align: right;
+}
+
+.DetailsContainer .price::before {
+    content: "Cena: ";
+    font-size: large;
+    text-align: right;
+    display: block;
+}
+
+/* Details for phone and right placing button */
+
+.DetailsContainer .my-btn {
+    display: none;
+}
+
+.my-btn.pc {
+    display: block;
+}
+
+@media (max-width: 768px) {
+
+    /* Defined for phones */
+    .my-btn {
+        grid-column: 2/4;
+        display: block !important;
+    }
+
+    .my-btn.pc {
+        display: none !important;
+    }
+
+    ul {
+        padding-left: 1.4em;
+    }
+
+    li::marker {
+        /* content: "" !important; */
+    }
+
+    .DetailsContainer .info::before {
+        display: block;
+        text-decoration: underline;
+        transform: translate(-.7em);
+    }
+
+    .DetailsContainer .info {
+        padding-left: .5em;
+        box-sizing: border-box;
+    }
+}
+
+.DetailsContainer .description {
+    grid-column: 1/5;
+    margin: 1em;
+    text-align: justify;
+}
+
+.DetailsContainer .description::before {
+    content: "Opis:";
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-bottom: 1px solid;
+    margin-bottom: .5em;
+}

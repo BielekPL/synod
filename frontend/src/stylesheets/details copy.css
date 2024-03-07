@@ -1,0 +1,101 @@
+.DetailsContainer {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    gap: 1em;
+}
+
+@media (min-width: 768px) {
+    .DetailsContainer {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .DetailsContainer .topic {
+        grid-column: 1/5;
+    }
+
+    .DetailsContainer img {
+        grid-column: 2/3;
+        height: 17em;
+    }
+
+    .DetailsContainer .details {
+        height: 100%;
+        display: grid;
+        grid-template-rows: 1fr auto auto;
+    }
+    .DetailsContainer .description{
+    grid-column: 1/5;
+    }
+}
+
+
+@media (max-width: 768px) {
+    /* Phones */
+    .DetailsContainer {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .DetailsContainer img {
+        /* grid-column: 2/3; */
+        margin: 0 auto;
+        height: 17em;
+    }
+
+    .DetailsContainer .details {
+        height: 100%;
+        display: grid;
+        grid-template-rows: 1fr auto auto;
+    }
+
+    .DetailsContainer .my-btn {
+        width: 70%;
+        margin: 0 auto;
+        /* padding: 1em 4em; */
+    }
+}
+
+.DetailsContainer .details>ul {
+    width: max-content;
+    height: max-content;
+    justify-self: center;
+}
+
+.DetailsContainer .info {
+    font-weight: bold;
+}
+
+.DetailsContainer .info::before {
+    font-weight: lighter;
+    content: attr(data-tag);
+}
+
+
+.DetailsContainer .price {
+    display: block;
+    font-size: xx-large;
+    text-align: right;
+}
+
+.price::before {
+    content: "Cena: ";
+    font-size: large;
+    text-align: left;
+}
+
+.price::after {
+    content: " zł";
+}
+
+.DetailsContainer .description {
+    margin: 1em;
+    text-align: justify;
+}
+
+.DetailsContainer .description::before {
+    content: "Opis:";
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-bottom: 1px solid;
+    margin-bottom: .5em;
+}

@@ -1,0 +1,75 @@
+/* cards.css */
+.books{
+    --columns-amount: 2;
+    display: grid !important;
+    grid-template-columns: repeat(var(--columns-amount), 1fr);
+    width: 100%;
+    gap: .4em;
+    margin: .4em;
+}
+
+.card:hover{
+    transform: scale(1.1);
+    z-index: 5;
+}
+
+.card, .row{
+    background-color: white !important;
+    padding: .5em 1em;
+    position: relative;
+    font-size: .9rem;
+
+    /* * Żeby zrobić w pionie, wywalić ten grid, bootsrap da swojego flexa */
+    display: grid !important; 
+    grid-template-rows: max-content auto;
+    /* grid-template-columns: max-content auto; */
+    gap: 1em;
+
+    text-overflow: ellipsis !important; /* nwm czy to działa */
+    border: .2px solid #00000033;
+    border-radius: .4em;
+    box-shadow: #696969de 0px 1.5px 2px;
+    z-index: 2;
+
+    color: var(--dark-font);
+    text-decoration: none;
+
+    transition: all .1s;
+}
+
+.card h3{
+    font-size: 1.1rem;
+    margin: .2em 0;
+    text-align: center;
+    text-overflow: ellipsis;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.card .dostepnosc {
+    /* display: none; */
+    font-weight: bolder;
+    margin-top: auto;
+    text-align: center;
+}
+
+.dostepnosc::before{
+    margin-left: .2em;
+    content: "Stan: ";
+    font-weight: initial;
+} 
+
+
+.card > .img{
+    width: 3.9em;
+    height: 6em;
+    /* margin: .5em; */
+    /* background-color: brown; */
+    margin: 0 auto;
+    writing-mode: vertical-lr;
+    text-align: center;
+    border: .5px dotted black
+}

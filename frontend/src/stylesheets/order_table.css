@@ -1,0 +1,60 @@
+/* order_table.css */
+
+table .img{
+    background-repeat: no-repeat;
+    background-position: 50%;
+    max-height: 5rem;
+}
+
+tr{
+    text-align: center;
+    vertical-align: baseline;
+    width: fit-content !important;
+}
+
+tr input  tr input:active {
+    display: inline-block;
+    text-align: center !important;
+    border-radius: .2em;
+    border: 1px solid;
+}
+
+.Basket .amount-btn{
+    height: 1.5em;
+    width: 1.5em;
+    position: relative;
+    border-radius: 50%;
+    box-sizing: content-box;
+    padding: 0;
+}
+
+table .price {
+    font-weight: normal;
+    font-size: inherit;
+}
+
+table .price::before{
+    content: "";
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.Basket input{
+    transition: all .1s;
+    border:2px solid transparent;
+}
+
+.Basket input:not([value="0"]) {
+    /* border:2px solid transparent; */
+    border-color:#0d6efd;
+    box-sizing: border-box;
+    border-radius: .5em;
+    padding-top: .2em !important;
+    padding-bottom: .2em !important;
+    /* color: var(--bs-white); */
+    /* transition: all .1s; */
+}
