@@ -1,4 +1,4 @@
-FROM node:21-bookworm-slim
+FROM node:21-alpine
 
 WORKDIR /synod/frontend/
 
@@ -8,5 +8,3 @@ RUN npm install
 COPY . /synod/frontend/
 
 CMD ["npm", "start"]
-
-
